@@ -1,0 +1,7 @@
+<h1>{{ post.title }}</h1>
+@for (section of post.content; track $index) {
+    <app-section 
+        [title]="section.title" 
+        [description]="section.description">
+    </app-section>
+}
