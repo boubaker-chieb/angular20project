@@ -1,7 +1,14 @@
 <h1>{{ post.title }}</h1>
-@for (section of post.content; track $index) {
-    <app-section 
-        [title]="section.title" 
-        [description]="section.description">
-    </app-section>
-}
+<div class="sections-navigation">
+    @for (section of post.content; track $index) {
+        <button 
+            class="section-button" 
+            (click)="setCurrentSection(section, $index)"
+            [class.active]="currentSectionIndex() === $index">
+            {{ section.title }}
+        </button>
+    }
+</div>
+<div class="current-section">
+    <app-section></app-section>
+</div>

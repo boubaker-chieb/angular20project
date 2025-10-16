@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { SectionSignalService } from '../../../../services/section-signal.service';
 
 @Component({
   selector: 'app-section',
@@ -7,8 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './section.scss'
 })
 export class Section {
-  @Input()
-  public title!: string;
-  @Input()
-  public description!: string;
+  private sectionService = inject(SectionSignalService);
+  
+  // Computed signals for title and description
+  title = computed(() => this.sectionService.section()?.title ?? '');
+  description = computed(() => this.sectionService.section()?.description ?? '');
 }

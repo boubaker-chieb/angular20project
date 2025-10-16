@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { Post } from "./components/components-communication/blog-simple/post/post";
+import { Parent } from './components/components-communication/input-function/parent/parent';
 
 @Component({
   selector: 'app-root',
-  imports: [Post],
+  imports: [ Parent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
